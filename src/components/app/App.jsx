@@ -1,12 +1,11 @@
-import { NavLink, Route, Routes } from "react-router-dom";
+import Navigation from "../navigation";
+import { Route, Routes } from "react-router-dom";
+import { lazy, Suspense } from "react";
 
 const App = () => {
 	return (
-		<>
-			<nav>
-				<NavLink to="/">Home</NavLink>
-				<NavLink to="/movies">Movies</NavLink>
-			</nav>
+		<Suspense fallback={<p>Loading...</p>}>
+			<Navigation />
 			<Routes>
 				<Route path="/" element={""} />
 				<Route path="/movies" element={""} />
@@ -16,7 +15,7 @@ const App = () => {
 				</Route>
 				<Route path="*" element={""} />
 			</Routes>
-		</>
+		</Suspense>
 	);
 };
 

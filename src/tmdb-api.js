@@ -5,11 +5,27 @@ axios.defaults.headers.common["Authorization"] = `Bearer ${
 	import.meta.env.VITE_API_KEY
 }`;
 
-const fetchData = async () => {
-	const response = await axios.get("/authentication");
-	console.log(response);
+const fetchData = async (request, params = {}) => {
+	const END_POINT = {
+		trending: "/trending/movie/day",
+		search: "/search/movie",
+		details: `/movie/${params.movieId}`,
+		credits: `/movie/${params.movieId}/credits`,
+		reviews: `/movie/${params.movieId}/reviews`,
+	};
 
-	return response.data;
+	try {
+		if (!END_POINT[request]) {
+			throw new Error(`Invalid request type: ${request}`);
+		}
+
+		const response = await axios.get(END_POINT[request]);
+
+		return response.data;
+	} catch (error) {
+		console.error(`Error fetching data: ${error.message}`);
+		// return null;
+	}
 };
 
 export default fetchData;

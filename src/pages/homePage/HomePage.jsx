@@ -2,13 +2,15 @@ import useFetchData from "../../hooks/useFetchData";
 import MovieList from "../../components/movieList/MovieList";
 
 const HomePage = () => {
-	const {
-		data: { results },
-		loading,
-		error,
-	} = useFetchData("trending");
+	const { data, loading, error } = useFetchData("trending");
 
-	return <>{results && <MovieList movies={results} />}</>;
+	return (
+		<>
+			{loading && <p>Loading...</p>}
+			{error && <p>Something went wrong, please try again.</p>}
+			{data && <MovieList movies={data.results} />}
+		</>
+	);
 };
 
 export default HomePage;

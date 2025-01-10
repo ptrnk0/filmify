@@ -1,38 +1,27 @@
-import { useEffect, useState } from "react";
+import useFetchData from "../../hooks/useFetchData";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
-import fetchData from "../../tmdb-api";
 
 const MovieDetailsPage = () => {
-	const [details, setDetails] = useState({});
 	const { movieId } = useParams();
 	const location = useLocation();
-
-	useEffect(() => {
-		async function fetchDetail() {
-			const result = await fetchData("details", { movieId });
-			setDetails(result);
-		}
-
-		fetchDetail();
-	}, [movieId]);
+	const { data, loading, error } = useFetchData("details", movieId);
+	console.log(data);
 
 	return (
 		<div>
 			<Link to={location.state ?? "/"}>Go back</Link>
-			{details && (
+			{data && (
 				<div>
 					<img
-						src={`https://image.tmdb.org/t/p/w500${details.poster_path}`}
-						alt={`${details.title} movie poster`}
+						src={`https://image.tmdb.org/t/p/w500${data.poster_path}`}
+						alt={`${data.title} movie poster`}
 					/>
-					<h1>{details.title}</h1>
-					<p>User score: {details.popularity}</p>
-					<p>{details.overview}</p>
+					<h1>{data.title}</h1>
+					<p>User score: {data.popularity}</p>
+					<p>{data.overview}</p>
 					<p>
-						{details.genres?.length > 0
-							? details.genres
-									.map((genre) => genre.name)
-									.join(", ")
+						{data.genres?.length > 0
+							? data.genres.map((genre) => genre.name).join(", ")
 							: "No genres available."}
 					</p>
 					<h2>Additional information</h2>

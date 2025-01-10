@@ -1,19 +1,14 @@
-import { useEffect, useState } from "react";
+import useFetchData from "../../hooks/useFetchData";
 import { useOutletContext } from "react-router-dom";
-import fetchData from "../../tmdb-api";
 
 const MovieCast = () => {
-	const [cast, setCast] = useState([]);
 	const movieId = useOutletContext();
 
-	useEffect(() => {
-		async function fetchCast() {
-			const result = await fetchData("credits", { movieId });
-			setCast(result.cast);
-		}
-
-		fetchCast();
-	}, [movieId]);
+	const {
+		data: { cast },
+		loading,
+		error,
+	} = useFetchData("credits", movieId);
 
 	return (
 		<ul>

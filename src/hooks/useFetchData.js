@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import fetchData from "../tmdb-api";
 
-const useFetchData = (endpoint, movieId = null) => {
-	const [data, setData] = useState([]);
+const useFetchData = (endPoint, query = null) => {
+	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(false);
 
@@ -10,7 +10,8 @@ const useFetchData = (endpoint, movieId = null) => {
 		async function fetchDataFromApi() {
 			try {
 				setLoading(true);
-				const results = await fetchData(endpoint, movieId);
+				setError(false);
+				const results = await fetchData(endPoint, query);
 				setData(results);
 			} catch (error) {
 				setError(true);
@@ -20,7 +21,7 @@ const useFetchData = (endpoint, movieId = null) => {
 		}
 
 		fetchDataFromApi();
-	}, [endpoint, movieId]);
+	}, [endPoint, query]);
 
 	return { data, loading, error };
 };

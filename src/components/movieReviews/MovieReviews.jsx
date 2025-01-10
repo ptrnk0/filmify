@@ -16,7 +16,7 @@ const MovieReviews = () => {
 
 	return (
 		<ul>
-			{results &&
+			{Array.isArray(results) && results.length ? (
 				results.map((review) => {
 					return (
 						<li key={review.id}>
@@ -26,7 +26,10 @@ const MovieReviews = () => {
 							</article>
 						</li>
 					);
-				})}
+				})
+			) : (
+				<p>We don&apos;t have any reviews for this movie.</p>
+			)}
 		</ul>
 	);
 };

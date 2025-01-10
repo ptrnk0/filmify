@@ -16,16 +16,23 @@ const NotFoundPage = lazy(() =>
 const App = () => {
 	return (
 		<Suspense fallback={<p>Loading...</p>}>
-			<Navigation />
-			<Routes>
-				<Route path="/" element={<HomePage />} />
-				<Route path="/movies" element={<MoviesPage />} />
-				<Route path="/movies/:movieId" element={<MovieDetailsPage />}>
-					<Route path="cast" element={<MovieCast />} />
-					<Route path="reviews" element={<MovieReviews />} />
-				</Route>
-				<Route path="*" element={<NotFoundPage />} />
-			</Routes>
+			<header>
+				<Navigation />
+			</header>
+			<main>
+				<Routes>
+					<Route path="/" element={<HomePage />} />
+					<Route path="/movies" element={<MoviesPage />} />
+					<Route
+						path="/movies/:movieId"
+						element={<MovieDetailsPage />}
+					>
+						<Route path="cast" element={<MovieCast />} />
+						<Route path="reviews" element={<MovieReviews />} />
+					</Route>
+					<Route path="*" element={<NotFoundPage />} />
+				</Routes>
+			</main>
 		</Suspense>
 	);
 };

@@ -1,21 +1,14 @@
-import { useEffect, useState } from "react";
+import useFetchData from "../../hooks/useFetchData";
 import MovieList from "../../components/movieList/MovieList";
-import fetchData from "../../tmdb-api";
 
 const HomePage = () => {
-	const [movies, setMovies] = useState([]);
+	const {
+		data: { results },
+		loading,
+		error,
+	} = useFetchData("trending");
 
-	useEffect(() => {
-		async function fetchTrending() {
-			setMovies([]);
-			const { results } = await fetchData("trending");
-			setMovies(results);
-		}
-
-		fetchTrending();
-	}, []);
-
-	return <MovieList movies={movies} />;
+	return <>{results && <MovieList movies={results} />}</>;
 };
 
 export default HomePage;

@@ -5,7 +5,6 @@ const MovieDetailsPage = () => {
 	const { movieId } = useParams();
 	const location = useLocation();
 	const { data, loading, error } = useFetchData("details", movieId);
-	console.log(data);
 
 	return (
 		<div>

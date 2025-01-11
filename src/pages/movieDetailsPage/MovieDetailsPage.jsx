@@ -1,14 +1,16 @@
+import { useRef } from "react";
 import useFetchData from "../../hooks/useFetchData";
 import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 
 const MovieDetailsPage = () => {
 	const location = useLocation();
+	const goBack = useRef(location);
 	const { movieId } = useParams();
 	const { data, loading, error } = useFetchData("details", movieId);
 
 	return (
 		<>
-			<Link to={location.state ?? "/"}>Go back</Link>
+			<Link to={goBack.current ?? "/"}>Go back</Link>
 			{loading && <p>Loading...</p>}
 			{error && <p>Something went wrong, please try again.</p>}
 			{data && (
@@ -28,14 +30,10 @@ const MovieDetailsPage = () => {
 					<h2>Additional information</h2>
 					<ul>
 						<li>
-							<Link to="cast" state={location.state}>
-								Cast
-							</Link>
+							<Link to="cast">Cast</Link>
 						</li>
 						<li>
-							<Link to="reviews" state={location.state}>
-								Reviews
-							</Link>
+							<Link to="reviews">Reviews</Link>
 						</li>
 					</ul>
 					<Outlet context={movieId} />

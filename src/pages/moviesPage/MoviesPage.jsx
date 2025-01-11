@@ -23,7 +23,7 @@ const MoviesPage = () => {
 			</form>
 			{loading && <p>Loading...</p>}
 			{error && <p>Something went wrong, please try again.</p>}
-			<>{data && <MovieList movies={data.results} />}</>
+			{data && <MovieList movies={data.results} />}
 		</>
 	);
 };

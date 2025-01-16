@@ -2,11 +2,10 @@ import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 import css from "./Navigation.module.css";
 import { useTranslation } from "react-i18next";
-import i18next from "i18next";
 import LOCALS from "../../i18n/constants";
 
 const Navigation = () => {
-	const { t } = useTranslation();
+	const [t, i18n] = useTranslation();
 
 	const buildLinkClass = ({ isActive }) => {
 		return clsx(css.link, isActive && css.active);
@@ -16,7 +15,7 @@ const Navigation = () => {
 		<>
 			<nav>
 				<NavLink to="/" className={buildLinkClass}>
-					Home
+					{t("Trending")}
 				</NavLink>
 				<NavLink to="/movies" className={buildLinkClass}>
 					{t("Movie")}
@@ -25,14 +24,14 @@ const Navigation = () => {
 			<div>
 				<button
 					onClick={() => {
-						i18next.changeLanguage(LOCALS.EN);
+						i18n.changeLanguage(LOCALS.EN);
 					}}
 				>
 					English
 				</button>
 				<button
 					onClick={() => {
-						i18next.changeLanguage(LOCALS.UK);
+						i18n.changeLanguage(LOCALS.UK);
 					}}
 				>
 					Ukrainian

@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import "modern-normalize";
 import "./index.css";
 import App from "./components/app/App";
+import "./i18n/index";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>

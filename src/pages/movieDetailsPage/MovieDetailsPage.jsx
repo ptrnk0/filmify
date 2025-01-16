@@ -4,13 +4,13 @@ import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 
 const MovieDetailsPage = () => {
 	const location = useLocation();
-	const goBack = useRef(location);
+	const refLocation = useRef(location.state);
 	const { movieId } = useParams();
 	const { data, loading, error } = useFetchData("details", movieId);
 
 	return (
 		<>
-			<Link to={goBack.current ?? "/"}>Go back</Link>
+			<Link to={refLocation.current ?? "/"}>Go back</Link>
 			{loading && <p>Loading...</p>}
 			{error && <p>Something went wrong, please try again.</p>}
 			{data && (
@@ -30,10 +30,17 @@ const MovieDetailsPage = () => {
 					<h2>Additional information</h2>
 					<ul>
 						<li>
-							<Link to="cast">Cast</Link>
+							<Link to="cast" state={refLocation.current ?? "/"}>
+								Cast
+							</Link>
 						</li>
 						<li>
-							<Link to="reviews">Reviews</Link>
+							<Link
+								to="reviews"
+								state={refLocation.current ?? "/"}
+							>
+								Reviews
+							</Link>
 						</li>
 					</ul>
 					<Outlet context={movieId} />

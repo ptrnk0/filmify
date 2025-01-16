@@ -1,4 +1,5 @@
 import axios from "axios";
+import i18next from "i18next";
 
 axios.defaults.baseURL = import.meta.env.VITE_API_URL;
 axios.defaults.headers.common["Authorization"] = `Bearer ${
@@ -20,7 +21,11 @@ const fetchData = async (endPoint, query) => {
 		return null;
 	}
 
-	const response = await axios.get(END_POINT[endPoint]);
+	const response = await axios.get(END_POINT[endPoint], {
+		params: {
+			language: i18next.language,
+		},
+	});
 	return response.data;
 };
 

@@ -11,6 +11,7 @@ const useFetchData = (endPoint, query = null) => {
 	useEffect(() => {
 		async function fetchDataFromApi() {
 			try {
+				setData(null);
 				setLoading(true);
 				setError(false);
 				const results = await fetchData(endPoint, query);

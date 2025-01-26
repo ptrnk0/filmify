@@ -6,6 +6,9 @@ import "./i18n/index";
 import "modern-normalize";
 import "./styles/index.css";
 import "./styles/common.css";
+import "./fonts/Mulish-Bold.ttf";
+import "./fonts/Mulish-BoldItalic.ttf";
+import "./fonts/Mulish-Regular.ttf";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>

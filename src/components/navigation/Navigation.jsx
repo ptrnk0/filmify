@@ -13,7 +13,7 @@ const Navigation = () => {
 
 	return (
 		<>
-			<nav>
+			<nav className={css.navLinkContainer}>
 				<NavLink to="/" className={buildLinkClass}>
 					{t("Trending")}
 				</NavLink>
@@ -21,20 +21,22 @@ const Navigation = () => {
 					{t("Movie")}
 				</NavLink>
 			</nav>
-			<div>
+			<div className={css.localsBtnContainer}>
 				<button
 					onClick={() => {
 						i18n.changeLanguage(LOCALS.EN);
 					}}
+					className={css.localsBtn}
 				>
-					English
+					EN
 				</button>
 				<button
 					onClick={() => {
 						i18n.changeLanguage(LOCALS.UK);
 					}}
+					className={css.localsBtn}
 				>
-					Ukrainian
+					UA
 				</button>
 			</div>
 		</>

@@ -1,0 +1,32 @@
+.container {
+    min-width: 300px;
+    max-width: 360px;
+    margin: 0 auto;
+    padding: 0 10px;
+    width: 100%;
+}
+
+body {
+    font-family: 'MulishRegular';
+}
+
+@font-face {
+    font-family: 'MulishBoldItalic';
+    src: local('MulishBoldItalic'), url('../fonts/Mulish-BoldItalic.ttf') format('truetype');
+    font-style: italic;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'MulishBold';
+    src: local('MulishBold'), url('../fonts/Mulish-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'MulishRegular';
+    src: local('MulishRegular'), url('../fonts/Mulish-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}

@@ -1,0 +1,23 @@
+.localsBtnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.localsBtn {
+    background-color: inherit;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 4px;
+}
+
+.localsBtn:hover,
+.localsBtn:focus {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    color: transparent;
+    background-clip: text;
+
+}

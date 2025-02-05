@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { Link, NavLink } from "react-router-dom";
-import css from "./Navigation.module.css";
+import { Link, NavLink, Outlet } from "react-router-dom";
+import css from "./Layout.module.css";
 import { useTranslation } from "react-i18next";
 import LocalsBtn from "../localsBtn/LocalsBtn";
 
@@ -31,6 +31,9 @@ const Navigation = () => {
 				</nav>
 				<LocalsBtn />
 			</header>
+			<main className="container">
+				<Outlet />
+			</main>
 		</>
 	);
 };

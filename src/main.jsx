@@ -9,6 +9,7 @@ import "./styles/common.css";
 import "./fonts/Mulish-Bold.ttf";
 import "./fonts/Mulish-BoldItalic.ttf";
 import "./fonts/Mulish-Regular.ttf";
+import "swiper/css/bundle";
 
 createRoot(document.getElementById("root")).render(
 	<StrictMode>

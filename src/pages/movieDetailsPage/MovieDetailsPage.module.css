@@ -1,0 +1,35 @@
+.poster {
+    height: 180px;
+    overflow: hidden;
+    position: relative;
+}
+
+.posterBackdrop {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 40px 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.posterBackdropGradient {
+    background-image: linear-gradient(to right, rgb(255, 255, 255) 20%, rgba(10.5, 31.5, 31.5, 0) 50%);
+    width: 100%;
+    height: 100%;
+}
+
+.posterImgContainer {
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    width: calc((100% / 2)/2);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.posterImg {
+    height: 100%;
+    width: 100%;
+}

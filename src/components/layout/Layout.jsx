@@ -20,7 +20,7 @@ const Navigation = () => {
 					</Link>
 				</div>
 			</div>
-			<header className={`container ${css.header}`}>
+			<header className={css.header}>
 				<nav className={css.navLinkContainer}>
 					<NavLink to="/" className={buildLinkClass}>
 						{t("Trending")}

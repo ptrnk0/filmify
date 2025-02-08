@@ -1,0 +1,22 @@
+.movieList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px
+}
+
+.movieListItem {
+    flex-basis: calc((100% - 20px)/2);
+    border-radius: 4px;
+}
+
+.movieImgContainer {
+    height: 240px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.movieImgContainer img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

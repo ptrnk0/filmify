@@ -1,10 +1,12 @@
 import { useSearchParams } from "react-router-dom";
 import MovieList from "../../components/movieList/MovieList";
 import useFetchData from "../../hooks/useFetchData";
+import { useTranslation } from "react-i18next";
 
 const MoviesPage = () => {
 	const [searchParams, setSearchParams] = useSearchParams();
 	const query = searchParams.get("query");
+	const [t] = useTranslation();
 
 	const { data, loading, error } = useFetchData("search", query);
 
@@ -19,7 +21,7 @@ const MoviesPage = () => {
 		<>
 			<form onSubmit={(evt) => handleSubmit(evt)}>
 				<input type="text" name="search" />
-				<button type="submit">Search</button>
+				<button type="submit">{t("Search")}</button>
 			</form>
 			{loading && <p>Loading...</p>}
 			{error && <p>Something went wrong, please try again.</p>}

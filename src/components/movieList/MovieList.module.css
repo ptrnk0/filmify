@@ -9,8 +9,20 @@
     border-radius: 4px;
 }
 
+@media (min-width: 768px) {
+    .movieListItem {
+        flex-basis: calc((100% - 40px)/3);
+    }
+}
+
+@media (min-width: 1280px) {
+    .movieListItem {
+        flex-basis: calc((100% - 80px)/5);
+    }
+}
+
 .movieImgContainer {
-    height: 240px;
+    height: 100%;
     border-radius: 4px;
     overflow: hidden;
 }

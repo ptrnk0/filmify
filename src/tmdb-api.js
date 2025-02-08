@@ -8,7 +8,8 @@ axios.defaults.headers.common["Authorization"] = `Bearer ${
 
 const fetchData = async (endPoint, query) => {
 	const END_POINT = {
-		trending: "/trending/movie/day",
+		trendingByDay: "/trending/movie/day",
+		trendingByWeek: "/trending/movie/week",
 		search: `/search/movie?query=${query}`,
 		details: `/movie/${query}`,
 		credits: `/movie/${query}/credits`,
@@ -17,7 +18,7 @@ const fetchData = async (endPoint, query) => {
 
 	if (!END_POINT[endPoint]) {
 		throw new Error(`Invalid request type: ${endPoint}`);
-	} else if (endPoint !== "trending" && !query) {
+	} else if (!endPoint.includes("trending") && !query) {
 		return null;
 	}
 

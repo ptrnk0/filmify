@@ -15,7 +15,6 @@ const MovieList = ({ movies }) => {
 									alt={`${movie.title}`}
 								/>
 							</div>
-							{movie.title}
 						</Link>
 					</li>
 				);

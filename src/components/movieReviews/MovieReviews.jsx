@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
 import useFetchData from "../../hooks/useFetchData";
 import { useOutletContext } from "react-router-dom";
 
 const MovieReviews = () => {
 	const movieId = useOutletContext();
+	const [t] = useTranslation();
 
 	const removeHtmlTags = (text) => {
 		return text.replace(/<[^>]*>/g, "");
@@ -28,7 +30,7 @@ const MovieReviews = () => {
 							);
 						})
 					) : (
-						<p>We don&apos;t have any reviews for this movie.</p>
+						<p>{t("DontHaveReviews")}</p>
 					))}
 			</ul>
 		</>

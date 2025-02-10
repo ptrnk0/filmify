@@ -1,0 +1,17 @@
+.logoContainer {
+    max-width: 100%;
+    padding: 8px 0 25px;
+}
+
+.headerLogo {
+    font-family: 'LexendGigaExtraBold';
+    font-size: 36px;
+}
+
+.link {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+}

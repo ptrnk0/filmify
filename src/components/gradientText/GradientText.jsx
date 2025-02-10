@@ -3,7 +3,7 @@ import css from "./GradientText.module.css";
 const GradientText = ({
 	children,
 	className = "",
-	colors,
+	colors = ["#20002c", "#cbb4d4", "#20002c", "#cbb4d4", "#20002c"],
 	animationSpeed = 8,
 	showBorder = false,
 }) => {

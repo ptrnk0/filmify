@@ -19,10 +19,6 @@ const MovieCast = () => {
 				<Swiper
 					modules={[Scrollbar, Keyboard, Mousewheel]}
 					spaceBetween={20}
-					freeMode={{
-						enabled: true,
-						sticky: true,
-					}}
 					mousewheel={{
 						invert: false,
 					}}

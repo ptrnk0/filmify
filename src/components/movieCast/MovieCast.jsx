@@ -2,9 +2,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar, Keyboard, Mousewheel } from "swiper/modules";
 import { useOutletContext } from "react-router-dom";
 
-import useFetchData from "../../hooks/useFetchData";
-
 import css from "./MovieCast.module.css";
+
+import useFetchData from "../../hooks/useFetchData";
 
 const MovieCast = () => {
 	const movieId = useOutletContext();

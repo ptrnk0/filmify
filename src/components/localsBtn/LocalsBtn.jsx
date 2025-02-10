@@ -1,8 +1,8 @@
 import i18next from "i18next";
 
-import LOCALS from "../../i18n/constants";
-
 import css from "./LocalsBtn.module.css";
+
+import LOCALS from "../../i18n/constants";
 
 const LocalsBtn = () => {
 	return (

@@ -1,7 +1,9 @@
-import useFetchData from "../../hooks/useFetchData";
 import { Link, Outlet, useParams } from "react-router-dom";
-import css from "./MovieDetailsPage.module.css";
 import { useTranslation } from "react-i18next";
+
+import css from "./MovieDetailsPage.module.css";
+
+import useFetchData from "../../hooks/useFetchData";
 
 const MovieDetailsPage = () => {
 	const [t] = useTranslation();

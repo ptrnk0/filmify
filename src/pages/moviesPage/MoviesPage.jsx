@@ -1,7 +1,8 @@
 import { useSearchParams } from "react-router-dom";
-import MovieList from "../../components/movieList/MovieList";
-import useFetchData from "../../hooks/useFetchData";
 import { useTranslation } from "react-i18next";
+
+import useFetchData from "../../hooks/useFetchData";
+import MovieList from "../../components/movieList/MovieList";
 
 const MoviesPage = () => {
 	const [searchParams, setSearchParams] = useSearchParams();

@@ -13,9 +13,18 @@
 }
 
 .navLinkContainer {
+    margin: 0 auto;
+}
+
+.navLinkList {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 200px;
-    margin: 0 auto;
+}
+
+.navLink svg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

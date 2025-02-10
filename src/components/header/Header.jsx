@@ -12,10 +12,18 @@ const Header = () => {
 	return (
 		<header className={css.header}>
 			<nav className={css.navLinkContainer}>
-				<NavLink to="/">{t("Trending")}</NavLink>
-				<NavLink to="/movies">
-					<FiSearch />
-				</NavLink>
+				<ul className={css.navLinkList}>
+					<li>
+						<NavLink to="/" className={css.navLink}>
+							{t("Trending")}
+						</NavLink>
+					</li>
+					<li>
+						<NavLink to="/movies" className={css.navLink}>
+							<FiSearch />
+						</NavLink>
+					</li>
+				</ul>
 			</nav>
 			<LocalsBtn />
 		</header>

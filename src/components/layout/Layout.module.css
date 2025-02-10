@@ -6,10 +6,6 @@
 .headerLogo {
     font-family: 'LexendGigaExtraBold';
     font-size: 36px;
-    background: var(--main-color);
-    background: var(--main-gradient);
-    color: transparent;
-    background-clip: text;
 }
 
 .header {

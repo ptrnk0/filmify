@@ -3,6 +3,7 @@ import { Link, NavLink, Outlet } from "react-router-dom";
 import css from "./Layout.module.css";
 import { useTranslation } from "react-i18next";
 import LocalsBtn from "../localsBtn/LocalsBtn";
+import GradientText from "../gradientText/GradientText";
 
 const Navigation = () => {
 	const [t] = useTranslation();
@@ -16,7 +17,17 @@ const Navigation = () => {
 			<div className={css.logoContainer}>
 				<div className="container">
 					<Link to="/" className={css.headerLogo}>
-						Filmify
+						<GradientText
+							colors={[
+								"#20002c",
+								"#cbb4d4",
+								"#20002c",
+								"#cbb4d4",
+								"#20002c",
+							]}
+						>
+							Filmify
+						</GradientText>
 					</Link>
 				</div>
 			</div>

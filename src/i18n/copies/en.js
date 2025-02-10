@@ -1,5 +1,4 @@
 const en = {
-	Movie: "Movie",
 	Trending: "Trending",
 	Overview: "Overview",
 	Additional: "Additional information",

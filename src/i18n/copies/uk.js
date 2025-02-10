@@ -1,5 +1,4 @@
 const uk = {
-	Movie: "Фільми",
 	Trending: "Популярні",
 	Overview: "Сюжет",
 	Additional: "Додаткова інформація",

@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
-import useFetchData from "../../hooks/useFetchData";
 import { useOutletContext } from "react-router-dom";
+
+import useFetchData from "../../hooks/useFetchData";
 
 const MovieReviews = () => {
 	const movieId = useOutletContext();

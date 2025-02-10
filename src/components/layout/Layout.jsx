@@ -1,24 +1,18 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
-import css from "./Layout.module.css";
-
-import GradientText from "../gradientText/GradientText";
 import Header from "../header/Header";
+import Logo from "../logo/Logo";
+import Footer from "../footer/Footer";
 
 const Navigation = () => {
 	return (
 		<>
-			<div className={css.logoContainer}>
-				<div className="container">
-					<Link to="/" className={css.headerLogo}>
-						<GradientText>Filmify</GradientText>
-					</Link>
-				</div>
-			</div>
+			<Logo />
 			<Header />
 			<main className="container">
 				<Outlet />
 			</main>
+			<Footer />
 		</>
 	);
 };

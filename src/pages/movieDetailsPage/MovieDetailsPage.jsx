@@ -4,11 +4,23 @@ import { useTranslation } from "react-i18next";
 import css from "./MovieDetailsPage.module.css";
 
 import useFetchData from "../../hooks/useFetchData";
+import { useEffect, useState } from "react";
+import MovieDetails from "../../components/movieDetails/MovieDetails";
 
 const MovieDetailsPage = () => {
 	const [t] = useTranslation();
 	const { movieId } = useParams();
 	const { data, loading, error } = useFetchData("details", movieId);
+	const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+	useEffect(() => {
+		const handleResize = () => {
+			setIsMobile(window.innerWidth < 768);
+		};
+
+		window.addEventListener("resize", handleResize);
+		return () => window.removeEventListener("resize", handleResize);
+	}, []);
 
 	return (
 		<section>
@@ -24,24 +36,19 @@ const MovieDetailsPage = () => {
 							}}
 						>
 							<div className={css.posterBackdropGradient}></div>
-							<div className={css.posterImgContainer}>
-								<img
-									src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
-									alt={`${data.title} movie poster`}
-									className={css.posterImg}
-								/>
+							<div>
+								<div className={css.posterImgContainer}>
+									<img
+										src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
+										alt={`${data.title} movie poster`}
+										className={css.posterImg}
+									/>
+								</div>
+								{!isMobile && <MovieDetails data={data} />}
 							</div>
 						</div>
 					</div>
-					<h1>{data.title}</h1>
-					<p>
-						{data.genres &&
-							data.genres.map((genre) => genre.name).join(", ")}
-					</p>
-					<p>User score: {data.vote_average}</p>
-					<p>
-						{t("Overview")}: {data.overview}
-					</p>
+					{isMobile && <MovieDetails data={data} />}
 					<h2>{t("Additional")}</h2>
 					<ul>
 						<li>

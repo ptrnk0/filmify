@@ -1,7 +1,7 @@
 .poster {
-    height: 180px;
     overflow: hidden;
     position: relative;
+    aspect-ratio: 16 / 9;
 }
 
 .posterBackdrop {

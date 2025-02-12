@@ -6,6 +6,7 @@ import css from "./MovieDetailsPage.module.css";
 import useFetchData from "../../hooks/useFetchData";
 import { useEffect, useState } from "react";
 import MovieDetails from "../../components/movieDetails/MovieDetails";
+import FadeContent from "../../components/FadeContent";
 
 const MovieDetailsPage = () => {
 	const [t] = useTranslation();
@@ -24,43 +25,51 @@ const MovieDetailsPage = () => {
 
 	return (
 		<section>
-			{loading && <p>Loading...</p>}
-			{error && <p>Something went wrong, please try again.</p>}
-			{data && (
-				<>
-					<div className={css.poster}>
-						<div
-							className={css.posterBackdrop}
-							style={{
-								backgroundImage: `url(https://image.tmdb.org/t/p/w1280${data.backdrop_path})`,
-							}}
-						>
-							<div className={css.posterBackdropGradient}></div>
-							<div>
-								<div className={css.posterImgContainer}>
-									<img
-										src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
-										alt={`${data.title} movie poster`}
-										className={css.posterImg}
-									/>
+			<FadeContent>
+				{loading && <p>Loading...</p>}
+				{error && <p>Something went wrong, please try again.</p>}
+				{data && (
+					<>
+						<div className={css.poster}>
+							<div
+								className={css.posterBackdrop}
+								style={{
+									backgroundImage: `url(https://image.tmdb.org/t/p/w1280${data.backdrop_path})`,
+								}}
+							>
+								<div
+									className={css.posterBackdropGradient}
+								></div>
+								<div className={css.posterDetail}>
+									<div className={css.posterImgContainer}>
+										<img
+											src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
+											alt={`${data.title} movie poster`}
+											className={css.posterImg}
+										/>
+									</div>
+									<div className={css.posterText}>
+										{!isMobile && (
+											<MovieDetails data={data} />
+										)}
+									</div>
 								</div>
-								{!isMobile && <MovieDetails data={data} />}
 							</div>
 						</div>
-					</div>
-					{isMobile && <MovieDetails data={data} />}
-					<h2>{t("Additional")}</h2>
-					<ul>
-						<li>
-							<Link to="cast">{t("Cast")}</Link>
-						</li>
-						<li>
-							<Link to="reviews">{t("Reviews")}</Link>
-						</li>
-					</ul>
-					<Outlet context={movieId} />
-				</>
-			)}
+						{isMobile && <MovieDetails data={data} />}
+						<h2>{t("Additional")}</h2>
+						<ul>
+							<li>
+								<Link to="cast">{t("Cast")}</Link>
+							</li>
+							<li>
+								<Link to="reviews">{t("Reviews")}</Link>
+							</li>
+						</ul>
+						<Outlet context={movieId} />
+					</>
+				)}
+			</FadeContent>
 		</section>
 	);
 };

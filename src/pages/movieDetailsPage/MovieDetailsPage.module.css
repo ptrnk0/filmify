@@ -19,17 +19,34 @@
     height: 100%;
 }
 
-.posterImgContainer {
+.posterDetail {
     position: absolute;
-    top: 50%;
-    left: 5%;
     transform: translateY(-50%);
-    width: calc((100% / 2)/2);
-    border-radius: 4px;
+    top: 50%;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.posterImgContainer {
     overflow: hidden;
+    border-radius: 4px;
 }
 
 .posterImg {
     height: 100%;
     width: 100%;
 }
+
+/* @media (min-width: 768px) {
+    .posterText {
+        background: rgba(208, 208, 208, 0.4);
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        border-radius: 4px;
+        color: black;
+        height: auto;
+    }
+} */

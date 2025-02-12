@@ -1,15 +1,13 @@
-.header {
+.headerContainer {
     position: sticky;
     z-index: 1;
-    top: 20px;
-    transform: translate(0, -20px);
-    background-color: #ffffff;
+    top: 0;
     border-radius: 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 20px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    padding: 0 10px;
 }
 
 .navLinkContainer {

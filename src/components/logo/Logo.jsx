@@ -6,12 +6,10 @@ import GradientText from "../gradientText/GradientText";
 
 const Logo = () => {
 	return (
-		<div className={css.logoContainer}>
-			<div className="container">
-				<Link to="/" className={css.headerLogo}>
-					<GradientText>Filmify</GradientText>
-				</Link>
-			</div>
+		<div className="container">
+			<Link to="/" className={css.logoLink}>
+				<GradientText className={css.logo}>Filmify</GradientText>
+			</Link>
 		</div>
 	);
 };

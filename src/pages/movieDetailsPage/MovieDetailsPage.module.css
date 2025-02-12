@@ -7,7 +7,7 @@
 .posterBackdrop {
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: 40px 0;
+    background-position: 50px 0;
     width: 100%;
     height: 100%;
     border-radius: 4px;
@@ -25,7 +25,7 @@
     top: 50%;
     display: flex;
     gap: 20px;
-    padding: 20px;
+    padding: 2vh;
     height: 100%;
     width: 100%;
 }

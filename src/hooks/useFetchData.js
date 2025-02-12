@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-import fetchData from "../tmdb-api";
+import fetchData from "../tmdbApi";
 
 const useFetchData = (endPoint, query = null) => {
 	const [data, setData] = useState(null);

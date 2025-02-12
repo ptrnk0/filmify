@@ -21,22 +21,24 @@ const MovieDetailsPage = () => {
 			setIsMobile(window.innerWidth < 768);
 		};
 
-		(async () => {
-			setMainColor(
-				await getPosterColor(
-					`https://image.tmdb.org/t/p/w300${data?.poster_path}`
-				)
-			);
-		})();
-
-		setBgColor(mainColor);
-
 		window.addEventListener("resize", handleResize);
 		return () => {
 			window.removeEventListener("resize", handleResize);
 			setBgColor();
 		};
-	}, [data, mainColor]);
+	}, []);
+
+	useEffect(() => {
+		if (data?.poster_path) {
+			(async () => {
+				const color = await getPosterColor(
+					`https://image.tmdb.org/t/p/w300${data.poster_path}`
+				);
+				setMainColor(color);
+				setBgColor(color);
+			})();
+		}
+	}, [data]);
 
 	return (
 		<section>

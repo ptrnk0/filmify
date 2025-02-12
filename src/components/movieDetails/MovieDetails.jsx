@@ -15,9 +15,10 @@ const MovieDetails = ({ data }) => {
 			<p className={css.movieUserScore}>
 				User score: {data.vote_average}
 			</p>
-			<p className={css.movieOverview}>
-				{t("Overview")}: {data.overview}
-			</p>
+			<div className={css.movieOverview}>
+				<h2>{t("Overview")}</h2>
+				<p>{data.overview}</p>
+			</div>
 		</div>
 	);
 };

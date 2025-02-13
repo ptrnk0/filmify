@@ -7,6 +7,7 @@ import useFetchData from "../../hooks/useFetchData";
 import { useEffect, useState } from "react";
 import MovieDetails from "../../components/movieDetails/MovieDetails";
 import FadeContent from "../../components/FadeContent";
+import ProductionCompaniesList from "../../components/productionCompaniesList/ProductionCompaniesList";
 
 const MovieDetailsPage = () => {
 	const [t] = useTranslation();
@@ -59,22 +60,9 @@ const MovieDetailsPage = () => {
 							</div>
 						</div>
 						{isMobile && <MovieDetails data={data} />}
-						<div className={css.productionCompanies}>
-							{data.production_companies.map(
-								({ id, logo_path }) => {
-									if (logo_path) {
-										return (
-											<div key={id}>
-												<img
-													src={`https://image.tmdb.org/t/p/w300${logo_path}`}
-													alt=""
-												/>
-											</div>
-										);
-									}
-								}
-							)}
-						</div>
+						<ProductionCompaniesList
+							productionCompanies={data.production_companies}
+						/>
 						<h2>{t("Additional")}</h2>
 						<ul>
 							<li>

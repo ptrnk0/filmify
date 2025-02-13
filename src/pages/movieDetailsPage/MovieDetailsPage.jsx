@@ -4,17 +4,15 @@ import { useTranslation } from "react-i18next";
 import css from "./MovieDetailsPage.module.css";
 
 import useFetchData from "../../hooks/useFetchData";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import MovieDetails from "../../components/movieDetails/MovieDetails";
 import FadeContent from "../../components/FadeContent";
-import { setBgColor, getPosterColor } from "../../components/bgColor";
 
 const MovieDetailsPage = () => {
 	const [t] = useTranslation();
 	const { movieId } = useParams();
 	const { data, loading, error } = useFetchData("details", movieId);
 	const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-	const [mainColor, setMainColor] = useState("white");
 
 	useEffect(() => {
 		const handleResize = () => {
@@ -24,21 +22,8 @@ const MovieDetailsPage = () => {
 		window.addEventListener("resize", handleResize);
 		return () => {
 			window.removeEventListener("resize", handleResize);
-			setBgColor();
 		};
 	}, []);
-
-	useEffect(() => {
-		if (data?.poster_path) {
-			(async () => {
-				const color = await getPosterColor(
-					`https://image.tmdb.org/t/p/w300${data.poster_path}`
-				);
-				setMainColor(color);
-				setBgColor(color);
-			})();
-		}
-	}, [data]);
 
 	return (
 		<section>
@@ -56,9 +41,6 @@ const MovieDetailsPage = () => {
 							>
 								<div
 									className={css.posterBackdropGradient}
-									style={{
-										backgroundImage: `linear-gradient(to right, rgb(${mainColor[0]}, ${mainColor[1]}, ${mainColor[2]}) 20%, rgba(10.5, 31.5, 31.5, 0) 50%)`,
-									}}
 								></div>
 								<div className={css.posterDetail}>
 									<div className={css.posterImgContainer}>
@@ -66,7 +48,6 @@ const MovieDetailsPage = () => {
 											src={`https://image.tmdb.org/t/p/w300${data.poster_path}`}
 											alt={`${data.title} movie poster`}
 											className={css.posterImg}
-											id="img"
 										/>
 									</div>
 									<div className={css.posterText}>

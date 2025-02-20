@@ -33,19 +33,22 @@
 .posterImgContainer {
     overflow: hidden;
     border-radius: 4px;
+    flex-shrink: 0;
 }
 
 .posterImg {
     height: 100%;
 }
 
-/* @media (min-width: 768px) {
+@media (min-width: 768px) {
     .posterText {
         background: rgba(208, 208, 208, 0.4);
         backdrop-filter: blur(10px);
         padding: 20px;
         border-radius: 4px;
         color: black;
-        height: auto;
+        height: fit-content;
+        flex-shrink: 1;
+        align-self: center;
     }
-} */
+}

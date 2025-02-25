@@ -7,29 +7,27 @@ import css from "./Header.module.css";
 import LocalsBtn from "../localsBtn/LocalsBtn";
 
 const Header = () => {
-	const [t] = useTranslation();
+  const [t] = useTranslation();
 
-	return (
-		<header className="container">
-			<div className={css.headerContainer}>
-				<nav className={css.navLinkContainer}>
-					<ul className={css.navLinkList}>
-						<li>
-							<NavLink to="/" className={css.navLink}>
-								{t("Trending")}
-							</NavLink>
-						</li>
-						<li>
-							<NavLink to="/movies" className={css.navLink}>
-								<FiSearch />
-							</NavLink>
-						</li>
-					</ul>
-				</nav>
-				<LocalsBtn />
-			</div>
-		</header>
-	);
+  return (
+    <header className={`${css.headerContainer} container`}>
+      <nav className={css.navLinkContainer}>
+        <ul className={css.navLinkList}>
+          <li>
+            <NavLink to="/" className={css.navLink}>
+              {t("Trending")}
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/movies" className={css.navLink}>
+              <FiSearch />
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+      <LocalsBtn />
+    </header>
+  );
 };
 
 export default Header;

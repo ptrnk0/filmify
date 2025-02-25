@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import css from "./MovieDetailsPage.module.css";
 
 import useFetchData from "../../hooks/useFetchData";
-import { useEffect, useState } from "react";
+import useMediaQuery from "../../hooks/useMediaQuery.js";
 import MovieDetails from "../../components/movieDetails/MovieDetails";
 import FadeContent from "../../components/FadeContent";
 import ProductionCompaniesList from "../../components/productionCompaniesList/ProductionCompaniesList";
@@ -13,18 +13,7 @@ const MovieDetailsPage = () => {
   const [t] = useTranslation();
   const { movieId } = useParams();
   const { data, loading, error } = useFetchData("details", movieId);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
+  const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
     <section>

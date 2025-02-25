@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
-import { FiSearch } from "react-icons/fi";
 
 import css from "./Header.module.css";
 
@@ -20,7 +19,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink to="/movies" className={css.navLink}>
-              <FiSearch />
+              {t("Search")}
             </NavLink>
           </li>
         </ul>

@@ -1,8 +1,6 @@
 import { Link, Outlet, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import css from "./MovieDetailsPage.module.css";
-
 import useFetchData from "../../hooks/useFetchData";
 import useMediaQuery from "../../hooks/useMediaQuery.js";
 import MovieDetails from "../../components/movieDetails/MovieDetails";
@@ -22,16 +20,15 @@ const MovieDetailsPage = () => {
         {error && <p>Something went wrong, please try again.</p>}
         {data && (
           <>
-            <div className={css.poster}>
+            <div>
               <div
-                className={css.posterBackdrop}
                 style={{
                   backgroundImage: `url(https://image.tmdb.org/t/p/w1280${data.backdrop_path})`,
                 }}
               >
-                <div className={css.posterBackdropGradient}></div>
-                <div className={css.posterDetail}>
-                  <div className={css.posterImgContainer}>
+                <div></div>
+                <div>
+                  <div>
                     <picture>
                       <source
                         srcSet={`https://image.tmdb.org/t/p/w342${data.poster_path} 1x, https://image.tmdb.org/t/p/w780${data.poster_path} 2x`}
@@ -39,13 +36,10 @@ const MovieDetailsPage = () => {
                       <img
                         src={`https://image.tmdb.org/t/p/w342${data.poster_path}`}
                         alt={`${data.title} poster`}
-                        className={css.posterImg}
                       />
                     </picture>
                   </div>
-                  <div className={css.posterText}>
-                    {!isMobile && <MovieDetails data={data} />}
-                  </div>
+                  <div>{!isMobile && <MovieDetails data={data} />}</div>
                 </div>
               </div>
             </div>

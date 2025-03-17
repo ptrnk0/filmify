@@ -6,7 +6,7 @@ axios.defaults.headers.common["Authorization"] = `Bearer ${
   import.meta.env.VITE_API_KEY
 }`;
 
-const fetchData = async (endPoint, query) => {
+export const fetchData = async (endPoint, query) => {
   const END_POINT = {
     trendingByDay: "/trending/movie/day",
     trendingByWeek: "/trending/movie/week",
@@ -30,4 +30,11 @@ const fetchData = async (endPoint, query) => {
   return response.data;
 };
 
-export default fetchData;
+export const getPopularMovies = async () => {
+  const response = await axios.get("/movie/popular", {
+    params: {
+      language: i18next.language,
+    },
+  });
+  return response.data;
+};

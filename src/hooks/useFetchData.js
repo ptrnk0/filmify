@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-import fetchData from "../tmdbApi";
-
-const useFetchData = (endPoint, query = null) => {
+const useFetchData = (fetchFunction) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -15,7 +13,7 @@ const useFetchData = (endPoint, query = null) => {
         setData(null);
         setLoading(true);
         setError(false);
-        const results = await fetchData(endPoint, query);
+        const results = await fetchFunction();
         setData(results);
       } catch (error) {
         setError(true);
@@ -25,7 +23,7 @@ const useFetchData = (endPoint, query = null) => {
     }
 
     fetchDataFromApi();
-  }, [endPoint, query, t]);
+  }, [t, fetchFunction]);
 
   return { data, loading, error };
 };

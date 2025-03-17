@@ -4,9 +4,6 @@ import { BrowserRouter } from "react-router-dom";
 import App from "./components/app/App";
 import "./i18n/index";
 import "./styles/index.css";
-import "./styles/common.css";
-import "./fonts/Mulish-Bold.ttf";
-import "./fonts/Mulish-Regular.ttf";
 import "swiper/css/bundle";
 
 createRoot(document.getElementById("root")).render(
@@ -14,5 +11,5 @@ createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );

@@ -7,23 +7,24 @@ import uk from "./copies/uk";
 import en from "./copies/en";
 
 const resources = {
-	[LOCALS.EN]: {
-		translation: en,
-	},
-	[LOCALS.UK]: {
-		translation: uk,
-	},
+  [LOCALS.EN]: {
+    translation: en,
+  },
+  [LOCALS.UK]: {
+    translation: uk,
+  },
 };
 
-i18n.use(initReactI18next)
-	.use(LanguageDetector)
-	.init({
-		resources,
-		fallbackLng: "en",
+i18n
+  .use(initReactI18next)
+  .use(LanguageDetector)
+  .init({
+    resources,
+    fallbackLng: "en",
 
-		interpolation: {
-			escapeValue: false,
-		},
-	});
+    interpolation: {
+      escapeValue: false,
+    },
+  });
 
 export default i18n;

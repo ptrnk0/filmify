@@ -7,7 +7,7 @@ const Header = () => {
   const [t] = useTranslation();
 
   return (
-    <header className="fixed top-0 w-full p-[20px]">
+    <header className="fixed top-0 z-1 w-full p-[20px]">
       <nav>
         <ul className="flex flex-row justify-between">
           <li>

@@ -9,7 +9,10 @@ const Hero = () => {
     <>
       {data && (
         <section
-          className={`flex h-150 items-center bg-[url(https://image.tmdb.org/t/p/w1280${firstMovie.backdrop_path})] bg-cover bg-center bg-no-repeat`}
+          className={`relative flex h-150 items-center bg-cover bg-center bg-no-repeat`}
+          style={{
+            backgroundImage: `url(https://image.tmdb.org/t/p/w1280${firstMovie.backdrop_path})`,
+          }}
         >
           <div className="mx-auto flex flex-col gap-[20px] xl:w-10/12">
             <h2 className="text-6xl invert">{firstMovie.title}</h2>
@@ -39,6 +42,7 @@ const Hero = () => {
               </li>
             </ul>
           </div>
+          <div className="to-content-bg absolute bottom-0 h-[200px] w-full bg-gradient-to-b"></div>
         </section>
       )}
     </>

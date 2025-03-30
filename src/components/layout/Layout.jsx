@@ -5,9 +5,9 @@ import Footer from "../footer/Footer";
 
 const Navigation = () => {
   return (
-    <div className="bg-content-bg">
+    <div className="bg-content-bg flex min-h-screen flex-col">
       <Header />
-      <main>
+      <main className="grow">
         <Outlet />
       </main>
       <Footer />

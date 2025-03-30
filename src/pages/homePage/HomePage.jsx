@@ -7,8 +7,8 @@ const HomePage = () => {
       <Hero />
       <div className="relative -top-24">
         <MovieList>Popular trailers</MovieList>
-        <MovieList>Popular trailers</MovieList>
-        <MovieList>Popular trailers</MovieList>
+        <MovieList>Based on your views</MovieList>
+        <MovieList>New trailers</MovieList>
       </div>
     </>
   );

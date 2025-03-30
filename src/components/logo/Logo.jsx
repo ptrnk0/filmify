@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-const Logo = () => {
+const Logo = ({ className }) => {
   return (
-    <Link to="/" className="text-primary text-5xl uppercase">
+    <Link to="/" className={`text-primary text-5xl uppercase ${className}`}>
       Filmify
     </Link>
   );

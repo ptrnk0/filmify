@@ -18,14 +18,18 @@ const Hero = () => {
           }}
         >
           <div className="mx-auto flex flex-col gap-[20px] xl:w-10/12">
-            <h2 className="text-6xl invert">{movieWithContent.title}</h2>
-            <ul className="flex items-center gap-[12px] font-thin invert">
+            <h2 className="text-6xl mix-blend-difference invert">
+              {movieWithContent.title}
+            </h2>
+            <ul className="flex items-center gap-[12px] font-thin mix-blend-difference invert">
               <li>{`${movieWithContent.vote_average.toFixed(1)}/10 IMDb`}</li>
               <li>{movieWithContent.release_date.slice(0, 4)}</li>
               <li></li>
               <li></li>
             </ul>
-            <p className="w-[500px] invert">{movieWithContent.overview}</p>
+            <p className="w-[500px] mix-blend-difference invert">
+              {movieWithContent.overview}
+            </p>
             <ul className="flex gap-[22px]">
               <li>
                 <button className="bg-primary flex items-center justify-center gap-[8px] rounded-md px-[12px] py-[8px] text-white">

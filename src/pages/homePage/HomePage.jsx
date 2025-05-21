@@ -1,16 +1,17 @@
-import useFetchData from "../../hooks/useFetchData";
-import MovieList from "../../components/movieList/MovieList";
+import Hero from "../../components/hero/Hero.jsx";
+import MovieList from "../../components/movieList/MovieList.jsx";
 
 const HomePage = () => {
-	const { data, loading, error } = useFetchData("trendingByDay");
-
-	return (
-		<>
-			{loading && <p>Loading...</p>}
-			{error && <p>Something went wrong, please try again.</p>}
-			{data && <MovieList movies={data.results} />}
-		</>
-	);
+  return (
+    <>
+      <Hero />
+      <div className="relative -top-24">
+        <MovieList>Popular trailers</MovieList>
+        <MovieList>Based on your views</MovieList>
+        <MovieList>New trailers</MovieList>
+      </div>
+    </>
+  );
 };
 
 export default HomePage;

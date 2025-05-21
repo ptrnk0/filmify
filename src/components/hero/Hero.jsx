@@ -2,7 +2,7 @@ import useFetchData from "../../hooks/useFetchData.js";
 import { getPopularMovies } from "../../tmdbApi.js";
 
 const Hero = () => {
-  const { data, loading, error } = useFetchData(getPopularMovies);
+  const { data } = useFetchData(getPopularMovies);
 
   const movieWithContent = data?.results.find((movie) => {
     if (movie.backdrop_path && movie.overview) return true;
@@ -12,24 +12,24 @@ const Hero = () => {
     <>
       {data && (
         <section
-          className={`relative flex h-150 items-center bg-cover bg-top bg-no-repeat`}
+          className={`relative flex h-160 items-center bg-cover bg-top bg-no-repeat`}
           style={{
             backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movieWithContent.backdrop_path})`,
           }}
         >
           <div className="mx-auto flex flex-col gap-[20px] xl:w-10/12">
-            <h2 className="text-6xl mix-blend-difference invert">
-              {movieWithContent.title}
-            </h2>
-            <ul className="flex items-center gap-[12px] font-thin mix-blend-difference invert">
-              <li>{`${movieWithContent.vote_average.toFixed(1)}/10 IMDb`}</li>
-              <li>{movieWithContent.release_date.slice(0, 4)}</li>
-              <li></li>
-              <li></li>
-            </ul>
-            <p className="w-[500px] mix-blend-difference invert">
-              {movieWithContent.overview}
-            </p>
+            <div className="rounded-md backdrop-blur-xs xl:w-125">
+              <h2 className="text-6xl mix-blend-difference invert">
+                {movieWithContent.title}
+              </h2>
+              <ul className="flex items-center gap-[12px] font-thin mix-blend-difference invert">
+                <li>{`${movieWithContent.vote_average.toFixed(1)}/10 IMDb`}</li>
+                <li>{movieWithContent.release_date.slice(0, 4)}</li>
+              </ul>
+              <p className="w-[500px] mix-blend-difference invert">
+                {movieWithContent.overview}
+              </p>
+            </div>
             <ul className="flex gap-[22px]">
               <li>
                 <button className="bg-primary flex items-center justify-center gap-[8px] rounded-md px-[12px] py-[8px] text-white">
@@ -49,6 +49,7 @@ const Hero = () => {
               </li>
             </ul>
           </div>
+
           <div className="to-content-bg absolute bottom-0 h-[200px] w-full bg-gradient-to-b"></div>
         </section>
       )}

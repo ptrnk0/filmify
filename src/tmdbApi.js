@@ -8,7 +8,7 @@ axios.defaults.headers.common["Authorization"] = `Bearer ${
 
 export const fetchData = async (endPoint, query) => {
   const END_POINT = {
-    trendingByDay: "/trending/movie/day",
+    trendingByDay: "",
     trendingByWeek: "/trending/movie/week",
     search: `/search/movie?query=${query}`,
     details: `/movie/${query}`,
@@ -32,6 +32,24 @@ export const fetchData = async (endPoint, query) => {
 
 export const getPopularMovies = async () => {
   const response = await axios.get("/movie/popular", {
+    params: {
+      language: i18next.language,
+    },
+  });
+  return response.data;
+};
+
+export const getTrendingMoviesByDay = async () => {
+  const response = await axios.get("/trending/movie/day", {
+    params: {
+      language: i18next.language,
+    },
+  });
+  return response.data;
+};
+
+export const getMovieDetails = async (movieId) => {
+  const response = await axios.get(`/movie/${movieId}`, {
     params: {
       language: i18next.language,
     },

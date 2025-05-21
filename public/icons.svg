@@ -18,5 +18,16 @@
 <symbol id="icon-arrow" viewBox="0 0 18 32">
 <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667" d="M1.776 30.231l14.226-14.226-14.226-14.226"></path>
 </symbol>
+<symbol id="icon-youtube" viewBox="0 0 31 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.92" d="M28.856 8.858c-0.318-1.241-1.257-2.205-2.458-2.554l-0.025-0.006c-2.202-0.538-11.008-0.538-11.008-0.538s-8.806 0-11.008 0.589c-1.226 0.355-2.165 1.319-2.478 2.535l-0.005 0.025c-0.375 1.981-0.589 4.259-0.589 6.588 0 0.064 0 0.129 0 0.193l-0-0.010c-0 0.069-0.001 0.151-0.001 0.233 0 2.329 0.214 4.608 0.625 6.818l-0.035-0.229c0.349 1.198 1.28 2.121 2.458 2.452l0.025 0.006c2.202 0.589 11.008 0.589 11.008 0.589s8.806 0 11.008-0.589c1.226-0.355 2.165-1.319 2.478-2.535l0.005-0.025c0.375-1.981 0.589-4.259 0.589-6.587 0-0.047-0-0.093-0-0.14l0 0.007c0-0.069 0.001-0.151 0.001-0.233 0-2.329-0.215-4.609-0.625-6.819l0.035 0.229z"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.92" d="M12.484 19.866l7.36-4.186-7.36-4.186v8.371z"></path>
+</symbol>
+<symbol id="icon-instagram" viewBox="0 0 31 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.92" d="M21.764 3.2h-12.8c-3.535 0-6.4 2.865-6.4 6.4v12.8c0 3.535 2.865 6.4 6.4 6.4h12.8c3.535 0 6.4-2.865 6.4-6.4v-12.8c0-3.535-2.865-6.4-6.4-6.4z"></path>
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.92" d="M20.484 15.194c0.036 0.228 0.057 0.491 0.057 0.759 0 2.828-2.292 5.12-5.12 5.12-2.566 0-4.691-1.887-5.062-4.349l-0.004-0.028c-0.034-0.223-0.054-0.481-0.054-0.743 0-2.828 2.292-5.12 5.12-5.12 2.56 0 4.681 1.879 5.060 4.333l0.004 0.029zM22.404 8.96h0.013"></path>
+</symbol>
+<symbol id="icon-facebook" viewBox="0 0 31 32">
+<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.92" d="M23.044 3.2h-3.84c-0 0-0 0-0 0-3.534 0-6.4 2.865-6.4 6.4 0 0 0 0 0 0v-0 3.84h-3.84v5.12h3.84v10.24h5.12v-10.24h3.84l1.28-5.12h-5.12v-3.84c0-0.707 0.573-1.28 1.28-1.28h3.84v-5.12z"></path>
+</symbol>
 </defs>
 </svg>

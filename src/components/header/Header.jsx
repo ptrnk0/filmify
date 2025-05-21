@@ -1,19 +1,33 @@
-import { useTranslation } from "react-i18next";
 import { NavLink } from "react-router-dom";
-
 import Logo from "../logo/Logo.jsx";
+import { useEffect, useState } from "react";
 
 const Header = () => {
-  const [t] = useTranslation();
+  const [color, setColor] = useState(false);
+
+  useEffect(() => {
+    const scrollListener = () => {
+      setColor(window.pageYOffset > 200);
+    };
+
+    window.addEventListener("scroll", scrollListener);
+
+    return () => {
+      window.removeEventListener("scroll", scrollListener);
+    };
+  }, [color]);
 
   return (
-    <header className="fixed top-0 z-2 w-full p-[20px]">
+    <header
+      className="t fixed top-0 z-2 w-full p-[20px] transition-colors duration-400 ease-in-out"
+      style={color ? { backgroundColor: "rgba(0,0,0,0.9)" } : {}}
+    >
       <nav>
         <ul className="flex flex-row justify-between">
           <li>
             <Logo />
           </li>
-          <div className="flex flex-row items-stretch justify-center gap-[50px] font-medium invert">
+          <div className="flex flex-row items-stretch justify-center gap-[50px] text-xl font-medium invert">
             <li>
               <NavLink to="/" className="flex h-full items-center">
                 Main
